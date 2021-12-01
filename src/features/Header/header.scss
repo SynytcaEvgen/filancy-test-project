@@ -1,0 +1,64 @@
+$bg_header: rgb(22, 27, 34);
+
+.header {
+    background-color: $bg_header;
+    &__content{
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    
+
+}
+.logo {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 30px;
+
+    &__text {
+        font-size: 25px;
+        line-height: 1.5;
+        font-weight: bold;
+        display: flex;
+        align-self: center;
+        flex-direction: column;
+        *{
+            font-size: inherit;
+            font-weight: inherit;
+        }
+        .sub_text{
+            font-size: 13px;
+            text-align: right;
+        }
+    }
+
+    svg {
+        fill: rgb(201, 209, 217);
+        width: 50px;
+        height: 50px;
+    }
+}
+// MEDIA query
+@media only screen and (max-width: 480px) {
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        gap: 15px;
+        &__text {
+            font-size: 18px;
+            .sub_text {
+                font-size: 12px;
+            }
+        }
+        svg {
+            width: 30px;
+            height: 30px;
+        }
+    }
+    .header {
+        &__content {
+            padding: 18px 0;
+        }
+    }
+}
