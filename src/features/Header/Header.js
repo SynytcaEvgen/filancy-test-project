@@ -11,7 +11,7 @@ const Header = () => {
                             <Logo />
                             <div className="logo__text">
                                 <span>Repos Search app</span>
-                                <span className="sub_text">powerd by GitHub</span>
+                                <span className="sub_text">powered by GitHub</span>
                             </div>
                         </div>
                     </a>

@@ -8,9 +8,16 @@ body{
     font-family: $font;
     background-color: $bg_color;
     color: $text_color;
+    position: relative;
 }
 .container{
     max-width: 1480px;
     padding: 0 20px;
     margin: 0 auto;
+}
+
+@media only screen and (max-width: 600px){
+    .container {
+        padding: 0 14px;
+    }
 }

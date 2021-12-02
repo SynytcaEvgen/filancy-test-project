@@ -1,0 +1,35 @@
+.repos-list{
+    padding-bottom: 40px;
+    &__title{
+        font-size: 36px;
+        font-weight: 600;
+        line-height: 2;
+        margin-bottom: 20px;
+    }
+    &__result{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .repos-list {
+        padding-bottom: 25px;
+        &__title {
+            font-size: 28px;
+            margin-bottom: 14px;
+        }
+    }
+}
+@media only screen and (max-width: 600px) {
+    .repos-list {
+        padding-bottom: 20px;
+        &__title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        &__result {
+            gap: 14px;
+        }
+    }
+}

@@ -1,13 +1,15 @@
 import Header from './features/Header/Header';
 import SearchBlock from './features/SearchBlock/SearchBlock';
-// import ReposItemDetail from './features/RerosDetail/ReposDetail';
+import Splashscreen from './features/Splashscreen/Splashscreen';
+// import ReposItemDetail from './features/ReposItemDetail/ReposItemDetail';
 
 import './App.scss';
 
 function App() {
   return (
-    <div>
+    <div className="app_wrapper">
       <Header />
+      <Splashscreen/>
       <main>
         <SearchBlock />
         {/* <ReposItemDetail/> */}

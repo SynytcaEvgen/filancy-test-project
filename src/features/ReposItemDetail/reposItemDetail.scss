@@ -1,0 +1,142 @@
+$bg_color: rgb(22, 27, 34);
+.repos-item-detail{
+    &__content{
+        background-color: $bg_color;
+        border-radius: 10px;
+        margin: 30px 0 50px;
+        padding: 40px;
+       
+    }
+    &__back{
+        display: block;
+        margin-top: 20px;
+        font-size: 20px;
+        transition: 0.3s ease;
+        &::before {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            vertical-align: text-bottom;
+            content: "";
+            background-color: currentColor;
+            margin-right: 4px;
+            clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%);
+        }
+        &:hover{
+            color: #58a6ff;
+            transition: 0.3s ease;
+        }
+    }
+    &__title{
+        font-size: 36px;
+        line-height: 2;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+    &__info{
+        display: flex;
+        gap: 80px;
+    }
+    &__img{
+        width: 400px;
+    }
+    &__desc{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        *{
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .desc_item{
+            display: flex;
+            gap: 20px;
+            &__q{
+                min-width: 130px;
+                max-width: 130px;
+                font-weight: 700;
+            }
+            &__a{
+                &.link{
+                    color: #58a6ff;
+                    display: block;
+                    border-bottom: 1px solid #58a6ff;
+                    transition: 0.3s ease;
+                    &:hover{
+                        transition: 0.3s ease;
+                        border-bottom: 1px solid transparent;
+                        color:#c9d1d9;
+                    }
+                }
+            } 
+        }
+    }
+}
+@media only screen and (max-width: 1199px){
+    .repos-item-detail {
+        &__info {
+            gap: 40px;
+        }
+        &__img {
+            width: 300px;
+        }
+    }
+}
+@media only screen and (max-width: 992px) {
+    .repos-item-detail {
+        &__info {
+            gap: 30px;
+        }
+
+        &__img {
+            width: 220px;
+        }
+    }
+}
+@media only screen and (max-width: 992px) {
+    .repos-item-detail {
+        &__info {
+            flex-direction: column;
+            gap: 40px;
+        }
+        &__img {
+            margin: 0 auto;
+            width: 400px;
+        }
+    }
+}
+@media only screen and (max-width: 600px) {
+    .repos-item-detail {
+        &__title {
+            font-size: 25px
+        }
+        &__back {
+            margin-top: 16px;
+            font-size: 16px;
+            &::before {
+                width: 16px;
+                height: 16px;
+            }
+        }
+        &__content {
+        border-radius: 6px;
+        margin: 30px 0;
+        padding: 30px 16px;
+        }
+        &__desc {
+            gap: 10px;
+
+            * {
+                font-size: 14px;
+                line-height: 1.4;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 480px) {
+    .repos-item-detail {
+        &__img {
+            width: 100%;
+        }
+    }
+}
