@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import './reposListItem.scss'
 
-const ReposListItem = () => {
+const ReposListItem = ({name, img, rate, alt}) => {
     const [favState, setFavState] = useState(false);
     const onFavorite = (e) => {
         e.preventDefault();
@@ -14,13 +14,13 @@ const ReposListItem = () => {
         <div className="repos-item">
             <div className="repos-item__img">
                 <div className="img_wrapper">
-                    <img src="http://www.stpaulsteinbach.org/wp-content/uploads/2014/09/unknown-hero.jpg" alt="/" />
+                    <img src={img} alt={alt} />
                 </div>
             </div>
             <div className="repos-item__desc">
                 <div className="row head">
                     <div className="repos-item__name">
-                        <a href="/">Name/Link to repository</a>
+                        <a href="/">{name}</a>
                     </div>
                     <div className="repos-item__rate">
                         <div className="rate-star">
@@ -28,7 +28,7 @@ const ReposListItem = () => {
                             <span className="text">Star</span>
                         </div>
                         <div className="rate-quantity">
-                            <span className="text">1000</span>
+                            <span className="text">{rate}</span>
                         </div>
                     </div>
                 </div>

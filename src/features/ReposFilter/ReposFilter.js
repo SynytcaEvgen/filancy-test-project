@@ -1,15 +1,27 @@
 import './reposFilter.scss';
 
-const ReposFilter = () => {
+const ReposFilter = ({filter, setFilter}) => {
     return (
         <div className="repos-filter">
             <div className="repos-filter__title">
                 <p>Sort:</p>
             </div>
             <ul className="repos-filter__list">
-                <li className="repos-filter__item active">By Name</li>
-                <li className="repos-filter__item">By Date</li>
-                <li className="repos-filter__item">By Rate</li>
+                <li
+                    className={filter === 'name' ? "repos-filter__item active" : "repos-filter__item"}
+                    onClick={() => setFilter(state => state = 'name')}>
+                    By Name
+                </li>
+                <li
+                    className={filter === '' ? "repos-filter__item active" : "repos-filter__item"}
+                    onClick={() => setFilter(state => state = '')}>
+                    By Date
+                </li>
+                <li
+                    className={filter === 'stargazers' ? "repos-filter__item active" : "repos-filter__item"}
+                    onClick={() => setFilter(state => state = 'stargazers')}>
+                    By Rate
+                </li>
             </ul>
         </div> 
     )

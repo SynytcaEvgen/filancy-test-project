@@ -36,6 +36,7 @@
                 }
                 &.disabled{
                     color: #656666;
+                    pointer-events: none;
                 }
             }
             .page-state{
