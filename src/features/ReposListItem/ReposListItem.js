@@ -1,15 +1,20 @@
 import { ReactComponent as Star } from './star.svg';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import './reposListItem.scss'
 
-const ReposListItem = ({name, img, rate, alt}) => {
+const ReposListItem = ({idItem, name, img, rate, alt}) => {
     const [favState, setFavState] = useState(false);
     const onFavorite = (e) => {
         e.preventDefault();
         setFavState(state => !state);
+        localStorage.setItem(`${idItem}`, !favState)
+    };
+    const getStoregFav = (id) => {
+        let res = localStorage.getItem(`${id}`);
+        return res;
     }
-
     return (
         <div className="repos-item">
             <div className="repos-item__img">
@@ -33,11 +38,11 @@ const ReposListItem = ({name, img, rate, alt}) => {
                     </div>
                 </div>
                 <div className="row bottom">
-                    <a href="/" className="btn btn-view-more">View More</a>
+                    <Link to="detail" className="btn btn-view-more" onClick={()=> localStorage.setItem("clickId", JSON.stringify(idItem))}>View More</Link>
                     <a href="/"
-                        className={favState ? "btn btn-add-favorite added-to-fav-list" : "btn btn-add-favorite"}
+                        className={getStoregFav(idItem) === 'true' ? "btn btn-add-favorite added-to-fav-list" : "btn btn-add-favorite"}
                         onClick={onFavorite}>
-                        {favState ? "In favorites list" : "Add to favorites"}
+                        {getStoregFav(idItem) === 'true' ? "In favorites list" : "Add to favorites"}
                     </a>
                 </div>
             </div>

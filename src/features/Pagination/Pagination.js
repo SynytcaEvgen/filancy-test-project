@@ -1,24 +1,27 @@
-
 import {useGetRepositoriesQuery} from "../../app/apiSlice";
-
 
 import "./pagination.scss";
 
-const Pagination = ({validQuery, coutPage, setCountPage}) => {
+const Pagination = ({coutPage, setCountPage}) => {
+    const { data, isSuccess, refetch } = useGetRepositoriesQuery(
+        [localStorage.searchQuery ? localStorage.searchQuery.replace(/["]/gi, '') : '',
+            localStorage.coutPage ? localStorage.coutPage.replace(/["]/gi, '') : 1,
+            localStorage.filter ? localStorage.filter.replace(/["]/gi, '') : '']
+    );
     
-    const { data, isSuccess } = useGetRepositoriesQuery(validQuery);
-
     const onIncrementPage = (e) => {
         e.preventDefault();
         if (coutPage < allPage - 1) {
-            setCountPage(state => state + 1);
+            setCountPage(state => +state + 1);
+            refetch();
         }
     }
-
+    
     const onDectimentPage = (e) => {
         e.preventDefault();
         if (coutPage > 1) {
-            setCountPage(state => state - 1);
+            setCountPage(state => +state - 1);
+            refetch();
         }
     }
     const allPage = isSuccess ? data.total_count / data.items.length  : 1;

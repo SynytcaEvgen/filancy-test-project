@@ -1,65 +1,101 @@
-import './reposItemDetail.scss'
+import { Link } from 'react-router-dom';
+import Spinner from "../Spinner/Spinner";
 
-const ReposItemDetail = () => {
+import {useGetRepositoriesQuery} from "../../app/apiSlice";
+
+import './reposItemDetail.scss'
+const DeatailContent = ({ repData }) => {
+    console.log(repData);
     return (
-    
-        <div className="repos-item-detail">
-            <div className="container">
-                <a href="/" className="repos-item-detail__back"> Back to search</a>
-                <div className="repos-item-detail__content">
-                    <h2 className="repos-item-detail__title">Titele Repos</h2>
-                    <div className="repos-item-detail__info">
-                        <div className="column">
-                            <div className="repos-item-detail__img">
-                                <div className="img_wrapper">
-                                    <img src="http://www.stpaulsteinbach.org/wp-content/uploads/2014/09/unknown-hero.jpg" alt="/" />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="column">
-                            <ul className="repos-item-detail__desc">
-                                <li className="desc_item">
-                                    <span className="desc_item__q">Login:</span>
-                                    <span className="desc_item__a">test</span>
-                                </li>
-                                <li className="desc_item">
-                                    <span className="desc_item__q">Full name repos:</span>
-                                    <span className="desc_item__a">test</span>
-                                </li>
-                                <li className="desc_item">
-                                    <span className="desc_item__q">Description:</span>
-                                    <span className="desc_item__a">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem placeat cupiditate distinctio ab dolor. Animi illum dolores, laboriosam aut ad possimus doloremque non enim rem necessitatibus commodi eos voluptatibus id!
-                                    Quaerat, voluptates delectus ullam consectetur a ea excepturi minus totam ab incidunt omnis earum vero ipsam blanditiis veritatis harum nesciunt itaque molestiae beatae rerum tenetur. Vel minima nesciunt rerum exercitationem.
-                                    Itaque molestias, rem repellendus, aliquid, quam quia porro quo laboriosam recusandae harum sit ullam! Tempora omnis quam praesentium soluta repellat laudantium odit. Libero nobis deserunt nulla consectetur odit earum neque!
-                                    Nostrum consequuntur, omnis facilis commodi maiores, molestias dolorem minima laudantium repudiandae maxime iste. Voluptatem tempora, repudiandae voluptatum porro quasi quod totam, quaerat libero quis aliquid praesentium excepturi reiciendis quisquam hic.</span>
-                                </li>
-                                <li className="desc_item">
-                                    <span className="desc_item__q">Created:</span>
-                                    <span className="desc_item__a">test</span>
-                                </li>
-                                <li className="desc_item">
-                                    <span className="desc_item__q">Last update:</span>
-                                    <span className="desc_item__a">test</span>
-                                </li>
-                                <li className="desc_item">
-                                    <span className="desc_item__q">Repos link:</span>
-                                    <a href="/"className="desc_item__a link">test</a>
-                                </li>
-                                <li className="desc_item">
-                                    <span className="desc_item__q">Language:</span>
-                                     <span className="desc_item__a">test</span>
-                                </li>
-                                <li className="desc_item">
-                                    <span className="desc_item__q">License:</span>
-                                    <a href="/" className="desc_item__a link">test</a>
-                                </li>
-                                <li className="desc_item">
-                                    <span className="desc_item__q">Downloads:</span>
-                                    <a href="/"className="desc_item__a link">test</a>
-                                </li>
-                            </ul>
+        <>
+            <h2 className="repos-item-detail__title">{repData.name}</h2>
+            <div className="repos-item-detail__info">
+                <div className="column">
+                    <div className="repos-item-detail__img">
+                        <div className="img_wrapper">
+                            <img src={repData.owner.avatar_url} alt={repData.name} />
                         </div>
                     </div>
+                </div>
+                <div className="column">
+                    <ul className="repos-item-detail__desc">
+                        <li className="desc_item">
+                            <span className="desc_item__q">Login:</span>
+                            <span className="desc_item__a">{repData.owner.login}</span>
+                        </li>
+                        <li className="desc_item">
+                            <span className="desc_item__q">Full name repos:</span>
+                            <span className="desc_item__a">{repData.full_name}</span>
+                        </li>
+                        <li className="desc_item">
+                            <span className="desc_item__q">Description:</span>
+                            <span className="desc_item__a">{repData.description === null ? "no description" : repData.description}</span>
+                        </li>
+                        <li className="desc_item">
+                            <span className="desc_item__q">Created:</span>
+                            <span className="desc_item__a">{repData.created_at.replace(/[T,Z]/gi, ' ')}</span>
+                        </li>
+                        <li className="desc_item">
+                            <span className="desc_item__q">Last update:</span>
+                            <span className="desc_item__a">{repData.updated_at.replace(/[T,Z]/gi, ' ')}</span>
+                        </li>
+                        <li className="desc_item">
+                            <span className="desc_item__q">Repos link:</span>
+                            <a href={repData.html_url} className="desc_item__a link">{repData.html_url}</a>
+                        </li>
+                        <li className="desc_item">
+                            <span className="desc_item__q">Language:</span>
+                            <span className="desc_item__a">{repData.language === null ? 'language not defined' : repData.language}</span>
+                        </li>
+                        <li className="desc_item">
+                            <span className="desc_item__q">License:</span>
+                            <span
+                                className="desc_item__a">
+                                {repData.license === null ? 'no license' : repData.license.name}
+                            </span>
+                        </li>
+                        <li className="desc_item">
+                            <span className="desc_item__q">Visibility:</span>
+                            <span className="desc_item__a">{repData.visibility}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </>
+    )
+}
+const ReposItemDetail = () => {
+    const { data,
+        isSuccess,
+        isLoading,
+        isError,
+        error,
+        refetch } = useGetRepositoriesQuery(
+           [localStorage.searchQuery ? localStorage.searchQuery.replace(/["]/gi, '') : '',
+            localStorage.coutPage ? localStorage.coutPage.replace(/["]/gi, '') : 1,
+            localStorage.filter ? localStorage.filter.replace(/["]/gi, '') : '']
+        );
+    
+    const element = () => {
+        if (isSuccess && data.items.length > 0) {
+            const filtredDate = data.items.filter(item => item.id === +localStorage.clickId);
+            const [repData] = filtredDate;
+            return <DeatailContent repData={repData}/>
+        } else if (isSuccess && data.items.length === 0) {
+            return <h5 className="not-fond-messeg">Repository not found</h5>
+        } else if (isLoading) {
+            return <Spinner/>
+        } else if (isError) {
+            return <h5 className="error-messeg">{error.data.message}</h5>
+        }
+    }
+    const toDom = element();
+    return (
+        <div className="repos-item-detail">
+            <div className="container">
+                <Link to="/" className="repos-item-detail__back" onClick={refetch}> Back to search</Link>
+                <div className="repos-item-detail__content">
+                    {toDom}
                 </div>
             </div>
         </div>

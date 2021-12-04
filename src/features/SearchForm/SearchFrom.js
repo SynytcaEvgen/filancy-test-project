@@ -3,7 +3,7 @@
 import "./searchForm.scss";
 
 const SearchFrom = ({ onSearch, searchQuery, setSearchQuery }) => {
-    
+
     return (
         <div className="search">
             <div className="search__container">

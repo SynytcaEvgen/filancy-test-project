@@ -1,15 +1,24 @@
 .repos-list{
     padding-bottom: 40px;
+    padding-top: 20px;
     &__title{
         font-size: 36px;
         font-weight: 600;
-        line-height: 2;
-        margin-bottom: 20px;
+        line-height: 1.5;
+        margin-bottom: 10px;
     }
     &__result{
         display: flex;
         flex-direction: column;
         gap: 20px;
+    }
+    &__subtitle{
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1.5;
+    }
+    &__header{
+        margin-bottom: 30px;
     }
 }
 @media only screen and (max-width: 1024px) {
@@ -24,12 +33,20 @@
 @media only screen and (max-width: 600px) {
     .repos-list {
         padding-bottom: 20px;
+        padding-top: 10px;
         &__title {
             font-size: 24px;
             margin-bottom: 10px;
         }
         &__result {
             gap: 14px;
+        }
+         &__subtitle {
+             font-size: 14px;
+             font-weight: 500;
+         }
+        &__header {
+            margin-bottom: 15px;
         }
     }
 }
