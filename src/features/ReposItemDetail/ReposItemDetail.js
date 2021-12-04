@@ -5,7 +5,6 @@ import {useGetRepositoriesQuery} from "../../app/apiSlice";
 
 import './reposItemDetail.scss'
 const DeatailContent = ({ repData }) => {
-    console.log(repData);
     return (
         <>
             <h2 className="repos-item-detail__title">{repData.name}</h2>
