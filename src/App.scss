@@ -1,6 +1,7 @@
 
-$btn-hover-bg: rgb(46, 160, 67);
-$btn-bg: rgb(35, 134, 54);
+$btn-hover-bg: #2EA043;
+$btn-bg: #238636;
+$text_color: #C9D1D9;
 .btn{
   position: relative;
   display: inline-block;
@@ -15,7 +16,7 @@ $btn-bg: rgb(35, 134, 54);
   border: 1px solid $btn-bg;
   border-radius: 6px;
   appearance: none;
-  color: rgb(201, 209, 217);
+  color: $text_color;
   background-color: $btn-bg;
   transition: 0.3s ease;
   text-align: center;

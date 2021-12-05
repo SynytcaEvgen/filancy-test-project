@@ -1,49 +1,50 @@
-    .pagination{
-        &__container{
-            display: flex;
-            gap: 20px;
-            .previous_page{
-               &::before{
-                    display: inline-block;
-                    width: 16px;
-                    height: 16px;
-                    vertical-align: text-bottom;
-                    content: "";
-                    background-color: currentColor;
-                    margin-right: 4px;
-                    clip-path: polygon(9.8px 12.8px, 8.7px 12.8px, 4.5px 8.5px, 4.5px 7.5px, 8.7px 3.2px, 9.8px 4.3px, 6.1px 8px, 9.8px 11.7px, 9.8px 12.8px);
-               }
-            }
-            .next_page{
-                &::after{
-                    display: inline-block;
-                    width: 16px;
-                    height: 16px;
-                    vertical-align: text-bottom;
-                    content: "";
-                    background-color: currentColor;
-                    margin-left: 4px;
-                    clip-path: polygon(6.2px 3.2px, 7.3px 3.2px, 11.5px 7.5px, 11.5px 8.5px, 7.3px 12.8px, 6.2px 11.7px, 9.9px 8px, 6.2px 4.3px, 6.2px 3.2px);
-                }
-            }
-            .previous_page,
-            .next_page{
-                font-size: 16px;
-                line-height: 1;
-                &.active:hover{
-                    color: #58a6ff;
-                    transition: 0.3s ease;
-                }
-                &.disabled{
-                    color: #656666;
-                    pointer-events: none;
-                }
-            }
-            .page-state{
-                display: flex;
-                gap: 5px;
-            }
+@import '../../setStyle';
 
+.pagination{
+    &__container{
+        display: flex;
+        gap: 20px;
+        .previous_page{
+           &::before{
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                vertical-align: text-bottom;
+                content: "";
+                background-color: currentColor;
+                margin-right: 4px;
+                clip-path: polygon(9.8px 12.8px, 8.7px 12.8px, 4.5px 8.5px, 4.5px 7.5px, 8.7px 3.2px, 9.8px 4.3px, 6.1px 8px, 9.8px 11.7px, 9.8px 12.8px);
+           }
+        }
+        .next_page{
+            &::after{
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                vertical-align: text-bottom;
+                content: "";
+                background-color: currentColor;
+                margin-left: 4px;
+                clip-path: polygon(6.2px 3.2px, 7.3px 3.2px, 11.5px 7.5px, 11.5px 8.5px, 7.3px 12.8px, 6.2px 11.7px, 9.9px 8px, 6.2px 4.3px, 6.2px 3.2px);
+            }
+        }
+        .previous_page,
+        .next_page{
+            font-size: 16px;
+            line-height: 1;
+            &.active:hover{
+                color: $hover_link_color;
+                transition: 0.3s ease;
+            }
+            &.disabled{
+                color: $disabled_color;
+                pointer-events: none;
+            }
+        }
+        .page-state{
+            display: flex;
+            gap: 5px;
         }
     }
+}
     

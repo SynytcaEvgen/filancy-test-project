@@ -1,8 +1,10 @@
+@import '../../setStyle';
+
 .repos-item{
     display: flex;
     padding: 20px;
     border-radius: 6px;
-    border: 1px solid #30363d;
+    border: 1px solid $bg_elem_color;
     gap: 30px;
     &__img{
         width: 200px;
@@ -28,16 +30,15 @@
             font-size: 24px;
             font-weight: bold;
             line-height: 2;
-
         }
     }
     &__rate{
         display: flex;
         align-items: center;
         .rate-star{
-            background-color: rgb(33, 38, 45);
+            background-color: $btn_reg_color;
             border-radius: 6px;
-            border: 1px solid rgb(48, 54, 61);
+            border: 1px solid $bg_elem_color;
             padding: 7px 12px;
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
@@ -45,13 +46,13 @@
             align-items: center;
             gap: 5px;
             svg{
-                fill: #c9d1d9;
+                fill: $text_color;
                 width: 18px;
                 height: 18px;
             }
         }
         .rate-quantity{
-            border: 1px solid rgb(48, 54, 61);
+            border: 1px solid $bg_elem_color;
             border-radius: 6px;
             padding: 7px 12px;
             border-top-left-radius: 0;
@@ -67,21 +68,21 @@
 .btn{
     &.btn-view-more,
     &.btn-add-favorite {
-        background-color: #21262d;
-        border: 1px solid #f0f6fc1a;
+        background-color: $btn_reg_color;
+        border: 1px solid $btn_reg_border_color;
         transition: 0.3s ease;
         &:hover{
-            background-color: #30363d;
-            border-color: #8b949e;
+            background-color: $bg_elem_color;
+            border-color: $btn_text_hover_color;
             transition: 0.3s ease;
         }
         
     }
     &.added-to-fav-list {
-        background-color: #ecc61a;
-        color: #21262d;
+        background-color: $btn_fav_color;
+        color: $btn_reg_color;
         &:hover {
-            background-color: #eed566;
+            background-color: $btn_fav_hover_color;
         }
     }
     &.btn-add-favorite{
@@ -94,18 +95,17 @@
         &__name {
             * {
                 font-size: 20px;
-
             }
         }
     }
 }
+
 @media only screen and (max-width: 767px) {
     .repos-item {
         gap: 15px;
         &__name {
             * {
                 font-size: 18px;
-
             }
         }
         &__img {
@@ -122,6 +122,7 @@
         }
     }
 }
+
 @media only screen and (max-width: 500px) {
     .repos-item {
         &__desc {
@@ -133,6 +134,7 @@
         }
     }
 }
+
 @media only screen and (max-width: 480px) {
     .repos-item {
         flex-direction: column;
@@ -149,5 +151,4 @@
             }
         }
     }
-    
 }

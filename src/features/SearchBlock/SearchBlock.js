@@ -24,6 +24,7 @@ const SearchBlock = () => {
     setValidQuery(state => state = searchQuery);
     setCountPage(state => state = 1);
   };
+
   return (
     <div className="container">
       <div className="search-wrapper">
@@ -40,4 +41,4 @@ const SearchBlock = () => {
   )
 }
 
-export default SearchBlock
+export default SearchBlock;

@@ -1,9 +1,11 @@
+@import '../../setStyle';
+
 .repos-filter{
     display: flex;
     gap: 30px;
     padding-bottom: 30px;
     margin-bottom: 40px;
-    border-bottom: 1px solid rgb(48, 54, 61);
+    border-bottom: 1px solid $bg_elem_color;
     &__title{
         p{
             font-size: 20px;
@@ -17,23 +19,22 @@
         gap: 15px;
     }
     &__item{
-        background-color: rgb(33, 38, 45);
+        background-color: $btn_reg_color;
         padding: 7px 15px;
         border-radius: 4px;
-        border: 1px solid #f0f6fc1a;
+        border: 1px solid $btn_reg_border_color;
         font-size: 16px;
         line-height: 1;
         transition: 0.3s ease;
         cursor: pointer;
         font-weight: 500;
-
         &:hover{
-            background-color: rgb(48, 54, 61);
+            background-color: $bg_elem_color;
             border-color: #8b949e;
             transition: 0.3s ease;
         }
         &.active{
-            background-color: #83311e;
+            background-color: $active_filter_color;
             transition: 0.3s ease;
         }
     }
@@ -44,7 +45,7 @@
         justify-content: space-between;
         padding-bottom: 20px;
         margin-bottom: 30px;
-        gap: 10px;
+        gap: 7px;
         &__title p{
             font-size: 14px;
             align-self: center;

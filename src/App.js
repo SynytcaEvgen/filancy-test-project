@@ -1,7 +1,8 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 import Header from './features/Header/Header';
 import SearchBlock from './features/SearchBlock/SearchBlock';
 import Splashscreen from './features/Splashscreen/Splashscreen';
-import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import ReposItemDetail from './features/ReposItemDetail/ReposItemDetail';
 import ScrollToTop from './app/ScrollToTop';
 

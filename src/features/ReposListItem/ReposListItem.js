@@ -15,6 +15,7 @@ const ReposListItem = ({idItem, name, img, rate, alt}) => {
         let res = localStorage.getItem(`${id}`);
         return res;
     }
+
     return (
         <div className="repos-item">
             <div className="repos-item__img">
@@ -38,7 +39,12 @@ const ReposListItem = ({idItem, name, img, rate, alt}) => {
                     </div>
                 </div>
                 <div className="row bottom">
-                    <Link to="detail" className="btn btn-view-more" onClick={()=> localStorage.setItem("clickId", JSON.stringify(idItem))}>View More</Link>
+                    <Link
+                        to="detail"
+                        className="btn btn-view-more"
+                        onClick={() => localStorage.setItem("clickId", JSON.stringify(idItem))}>
+                        View More
+                    </Link>
                     <a href="/"
                         className={getStoregFav(idItem) === 'true' ? "btn btn-add-favorite added-to-fav-list" : "btn btn-add-favorite"}
                         onClick={onFavorite}>

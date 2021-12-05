@@ -1,17 +1,17 @@
-$bg_color: rgb(22, 27, 34);
+@import '../../setStyle';
 
 .search{
    padding: 0 0 30px;
-   border-bottom: 1px solid rgb(48, 54, 61);
+   border-bottom: 1px solid $bg_elem_color;
    margin-bottom: 40px;
    &__form{
       display: flex;
       gap: 15px;
    }
    &__input{
-      background-color: rgb(1, 4, 9);
-      border: 1px solid rgb(48, 54, 61);
-      color: rgb(201, 209, 217);
+      background-color: $bg_input_color;
+      border: 1px solid $bg_elem_color;
+      color: $text_color;
       padding: 10px 20px;
       font-size: 16px;
       font-weight: 500;
@@ -21,7 +21,7 @@ $bg_color: rgb(22, 27, 34);
       max-width: 100%;
       transition: 0.3s ease;
       &:focus{
-         border-color: #1f6feb;
+         border-color: $input_focus_color;
          transition: 0.3s ease;
       }
    }

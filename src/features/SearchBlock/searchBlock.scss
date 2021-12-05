@@ -1,6 +1,7 @@
-$bg_color: rgb(22, 27, 34);
+@import '../../setStyle';
+
 .search-wrapper{
-    background-color: $bg_color;
+    background-color: $bg_header;
     border-radius: 10px;
     margin: 50px 0;
     padding: 40px;

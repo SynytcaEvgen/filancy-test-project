@@ -1,7 +1,8 @@
-$bg_color: rgb(22, 27, 34);
+@import '../../setStyle';
+
 .repos-item-detail{
     &__content{
-        background-color: $bg_color;
+        background-color: $bg_header;
         border-radius: 10px;
         margin: 30px 0 50px;
         padding: 40px;
@@ -23,7 +24,7 @@ $bg_color: rgb(22, 27, 34);
             clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%);
         }
         &:hover{
-            color: #58a6ff;
+            color: $hover_link_color;
             transition: 0.3s ease;
         }
     }
@@ -58,20 +59,25 @@ $bg_color: rgb(22, 27, 34);
             }
             &__a{
                 &.link{
-                    color: #58a6ff;
+                    color: $hover_link_color;
                     display: block;
-                    border-bottom: 1px solid #58a6ff;
+                    text-decoration: underline;
                     transition: 0.3s ease;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
                     &:hover{
                         transition: 0.3s ease;
-                        border-bottom: 1px solid transparent;
-                        color:#c9d1d9;
+                        text-decoration: none;
+                        color: $text_color;
                     }
                 }
             } 
         }
     }
 }
+
+//media query
 @media only screen and (max-width: 1199px){
     .repos-item-detail {
         &__info {
@@ -119,13 +125,20 @@ $bg_color: rgb(22, 27, 34);
             }
         }
         &__content {
-        border-radius: 6px;
-        margin: 30px 0;
-        padding: 30px 16px;
+            border-radius: 6px;
+            margin: 30px 0;
+            padding: 30px 16px;
         }
         &__desc {
             gap: 10px;
-
+            overflow: hidden;
+            .desc_item {
+                gap: 10px;
+                &__q {
+                    min-width: 120px;
+                    max-width: 120px;
+                }
+            }
             * {
                 font-size: 14px;
                 line-height: 1.4;

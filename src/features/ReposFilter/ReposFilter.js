@@ -37,7 +37,7 @@ const ReposFilter = ({ filter, setFilter }) => {
                         setFilter(state => state = 'stars');
                         refetch();
                     }}>
-                    By Rate
+                    By Stars
                 </li>
             </ul>
         </div> 

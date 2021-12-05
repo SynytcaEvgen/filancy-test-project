@@ -79,16 +79,18 @@ const ReposItemDetail = () => {
         if (isSuccess && data.items.length > 0) {
             const filtredDate = data.items.filter(item => item.id === +localStorage.clickId);
             const [repData] = filtredDate;
-            return <DeatailContent repData={repData}/>
+            return <DeatailContent repData={repData} />
         } else if (isSuccess && data.items.length === 0) {
             return <h5 className="not-fond-messeg">Repository not found</h5>
         } else if (isLoading) {
-            return <Spinner/>
+            return <Spinner />
         } else if (isError) {
             return <h5 className="error-messeg">{error.data.message}</h5>
         }
-    }
+    };
+    
     const toDom = element();
+
     return (
         <div className="repos-item-detail">
             <div className="container">

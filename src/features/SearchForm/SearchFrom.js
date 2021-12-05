@@ -1,5 +1,3 @@
-
-
 import "./searchForm.scss";
 
 const SearchFrom = ({ onSearch, searchQuery, setSearchQuery }) => {
